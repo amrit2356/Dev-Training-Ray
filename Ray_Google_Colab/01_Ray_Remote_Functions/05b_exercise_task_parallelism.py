@@ -69,3 +69,11 @@ duration = time.time() - start_time
 
 print('The loss is {}. This took {:.3f} seconds. Run the next cell to see '
       'if the exercise was done correctly.'.format(loss, duration))
+
+assert loss == 4000
+assert duration < 0.8, ('The loop took {:.3f} seconds. This is too slow.'
+                        .format(duration))
+assert duration > 0.4, ('The loop took {:.3f} seconds. This is too fast.'
+                        .format(duration))
+
+print('Success! The example took {:.3f} seconds.'.format(duration))
