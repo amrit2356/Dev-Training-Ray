@@ -1,3 +1,13 @@
+"""
+Implementation of Github Web Scrapping without using Ray.
+Goal: 
+We break up the process into multiple steps. We first grab the raw HTML of the website using Python's requests package. 
+Then, we use BeautifulSoup to parse the HTML to find the relevant information. Finally, we populate a pandas DataFrames 
+so that we are able to work with the data.
+
+To demonstrate this, we scrape GitHub commits to see the latest commits on several repositories.
+
+"""
 import time
 import requests
 import pandas as pd
@@ -27,7 +37,7 @@ results = []
 for repo in repos:
     df = fetch_commits(repo)
     results.append(df)
-    
+
 df = pd.concat(results, sort=False)
 duration = time.time() - start
 print("Constructing the dataframe took {:.3f} seconds.".format(duration))
