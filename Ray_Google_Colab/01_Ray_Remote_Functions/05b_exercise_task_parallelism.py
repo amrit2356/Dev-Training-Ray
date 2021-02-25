@@ -14,7 +14,7 @@ ray.init(num_cpus=4, ignore_reinit_error=True)
 # because some workers may still be starting up in the background.
 time.sleep(2.0)
 
-## Helper Functions - Converting to Remote Functions
+# Helper Functions - Converting to Remote Functions
 @ray.remote
 def load_data(filename):
     time.sleep(0.1)
@@ -54,9 +54,9 @@ for filename in ['file1', 'file2', 'file3', 'file4']:
     features = extract_features.remote(normalized_data)
     loss = compute_loss.remote(features)
     losses.append(loss)
-    
+
     inner_end = time.time()
-    
+
     if inner_end - inner_start >= 0.1:
         raise Exception('You may be calling ray.get inside of the for loop! '
                         'Doing this will prevent parallelism from being exposed. '

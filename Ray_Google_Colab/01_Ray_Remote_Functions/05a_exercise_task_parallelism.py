@@ -7,7 +7,7 @@ from __future__ import print_function
 import numpy as np
 import time
 
-## Helper Functions
+# Helper Functions
 def load_data(filename):
     time.sleep(0.1)
     return np.ones((1000, 100))
@@ -36,7 +36,7 @@ for filename in ['file1', 'file2', 'file3', 'file4']:
     features = extract_features(normalized_data)
     loss = compute_loss(features)
     losses.append(loss)
-    
+
     inner_end = time.time()
 
 print('The losses are {}.'.format(losses) + '\n')

@@ -2,10 +2,10 @@ import ray
 """
 Parallelism with Ray
 """
-#Creation of Normal Python Function
+# Creation of Normal Python Function
 def function():
-  return 1
-  
+    return 1
+
 # This code adds 4 values synchronously(one by one).
 ray.init()
 result = 0
@@ -15,10 +15,10 @@ assert result == 4
 print(result)
 
 
-#Creation of Ray Remote function
+# Creation of Ray Remote function
 @ray.remote
 def remote_function():
-  return 1
+    return 1
 
 # using Remote function to access all the values simultaneously.
 results = []
