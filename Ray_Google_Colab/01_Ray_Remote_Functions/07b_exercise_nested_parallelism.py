@@ -1,15 +1,16 @@
 """
 Exercise 3: Nested Parallelism for 3 Tasks
-GOAL: The goal of this exercise is to show how to create nested tasks by calling a remote function inside of another remote function.
+GOAL: The goal of this exercise is to show how to create nested tasks by calling a remote function inside of
+another remote function.
 
-In this exercise, you will implement the structure of a parallel hyperparameter sweep which trains a number of models in parallel. 
-Each model will be trained using parallel gradient computations.
+In this exercise, you will implement the structure of a parallel hyperparameter sweep which trains a number of
+models in parallel. Each model will be trained using parallel gradient computations.
 
-Turn compute_gradient and train_model into remote functions so that they can be executed in parallel. 
+Turn compute_gradient and train_model into remote functions so that they can be executed in parallel.
 Inside of train_model, do the calls to compute_gradient in parallel and fetch the results using ray.get.
 """
 import ray
-import time 
+import time
 
 
 ray.init()
@@ -61,7 +62,7 @@ print("Duration for Running the Program:{:.3f}".format(duration))
 
 assert results == [20, 20, 20]
 assert duration < 0.5, ('The experiments ran in {:.3f} seconds. This is too '
-                         'slow.'.format(duration))
+                        'slow.'.format(duration))
 assert duration > 0.3, ('The experiments ran in {:.3f} seconds. This is too '
                         'fast.'.format(duration))
 

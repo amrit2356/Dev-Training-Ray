@@ -42,7 +42,8 @@ for _ in range(5):
 results = ray.get(results)
 duration = time.time() - start_time
 
-assert not any([isinstance(result, ray.ObjectID) for result in results]), 'Looks like "results" is {}. You may have forgotten to call ray.get.'.format(results)
+assert not any([isinstance(result, ray.ObjectID) for result in results]), \
+    'Looks like "results" is {}. You may have forgotten to call ray.get.'.format(results)
 print('Duration of the Exercise without Ray: {:.3f}'.format(duration))
 
 assert results == [1, 1, 2, 2, 3, 3, 4, 4, 5, 5]
